@@ -1,8 +1,12 @@
 #!/usr/bin/env node
 'use strict';
 const util = require('util');
+const template = require('lodash.template');
 const gitUrlParse = require('git-url-parse');
+const templateSettings = require('lodash.templatesettings');
 const gitconfig = util.promisify(require('gitconfiglocal'));
+
+templateSettings.interpolate = /{([\s\S]+?)}/g;
 
 module.exports = async ({commit, remote, cwd, gitDir}) => {
   const config = await gitconfig(cwd, {gitDir});
@@ -12,7 +16,12 @@ module.exports = async ({commit, remote, cwd, gitDir}) => {
   }
 
   const {source, owner, name} = gitUrlParse(config.remote[remote].url);
+  const templates = require('./templates.json');
 
-  const route = `commit${source === 'bitbucket.org' ? 's' : ''}`;
-  return `https://${source}/${owner}/${name}/${route}/${commit}`;
+  if (!(source in templates)) {
+    throw new Error(`service "${source}" is not supported`);
+  }
+
+  const interpolate = template(templates[source]);
+  return interpolate({source, owner, name, commit});
 };

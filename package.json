@@ -4,6 +4,12 @@
   "description": "Generate a URL for viewing a commit on GitLab, GitHub, or BitBucket.",
   "main": "index.js",
   "author": "Madeleine Daly",
+  "keywords": [
+    "bitbucket",
+    "git",
+    "github",
+    "gitlab"
+  ],
   "repository": {
     "url": "https://github.com/madeleinedaly/remote-commit-url.git",
     "type": "git"

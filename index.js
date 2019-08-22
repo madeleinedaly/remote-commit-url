@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 'use strict';
 const util = require('util');
 const template = require('lodash.template');

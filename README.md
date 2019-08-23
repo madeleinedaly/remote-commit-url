@@ -2,25 +2,44 @@
 
 Generate a URL for viewing a commit in the browser.
 
-## Installation
+## Usage
+
+### CLI
 
 ``` shell
 npm install -g remote-commit-url
 ```
 
-## Usage
-
 ``` shell
 remote-commit-url [options]
 ```
 
-### Options
+#### Options
 
 ``` shell
 --commit      Git commit ref [default: HEAD]
 --remote      Git remote [default: origin]
 --cwd         Path to git repository [default: .]
 --git-dir     Path to git directory [default: $GIT_DIR or .git]
+```
+
+### API
+
+``` shell
+npm i remote-commit-url
+```
+
+``` jsx
+const remoteCommitUrl = require('remote-commit-url');
+
+const commit = 'HEAD';
+const remote = 'origin';
+const cwd = '~/Code/dotfiles';
+
+(async () => {
+  const url = await remoteCommitUrl({commit, remote, cwd});
+  console.log(url); // => 'https://github.com/madeleinedaly/dotfiles/commit/HEAD'
+})();
 ```
 
 ## Supported platforms

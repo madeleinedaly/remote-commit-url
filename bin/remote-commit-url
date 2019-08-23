@@ -12,6 +12,7 @@ const defaults = {
   remote: 'origin',
   cwd: process.cwd(),
   gitDir: process.env.GIT_DIR || '.git',
+  debug: false,
 };
 
 const options = {
@@ -23,12 +24,14 @@ Options:
   --commit      Git commit ref [default: HEAD]
   --remote      Git remote [default: origin]
   --cwd         Path to git repository [default: .]
-  --git-dir     Path to git directory [default: $GIT_DIR or .git]`,
+  --git-dir     Path to git directory [default: $GIT_DIR or .git]
+  --debug       Whether to print debug info`,
   flags: {
     commit: {type: 'string', default: defaults.commit},
     remote: {type: 'string', default: defaults.remote},
     cwd: {type: 'string', default: defaults.cwd},
     gitDir: {type: 'string', default: defaults.gitDir},
+    debug: {type: 'debug', default: defaults.debug},
   },
 };
 

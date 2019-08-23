@@ -7,8 +7,12 @@ const gitconfig = util.promisify(require('gitconfiglocal'));
 
 templateSettings.interpolate = /{([\s\S]+?)}/g;
 
-module.exports = async ({commit, remote, cwd, gitDir}) => {
+module.exports = async ({commit, remote, cwd, gitDir, debug}) => {
   const config = await gitconfig(cwd, {gitDir});
+
+  if (debug) {
+    console.log(config);
+  }
 
   if (!config.remote) {
     throw new Error(`No remotes found in ${cwd}/${gitDir}/config`);
@@ -18,7 +22,13 @@ module.exports = async ({commit, remote, cwd, gitDir}) => {
     throw new Error(`Remote "${remote}" not found in ${cwd}/${gitDir}/config`);
   }
 
-  const {source, owner, name} = gitUrlParse(config.remote[remote].url);
+  const urlInfo = gitUrlParse(config.remote[remote].url);
+
+  if (debug) {
+    console.log(urlInfo);
+  }
+
+  const {source, owner, name} = urlInfo;
   const templates = require('./templates.json');
 
   if (!templates[source]) {

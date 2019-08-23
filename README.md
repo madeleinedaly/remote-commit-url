@@ -47,6 +47,7 @@ const cwd = '~/Code/dotfiles';
 Node >= 8
 
 ## Supported platforms
+* Azure DevOps
 * BitBucket
 * GitHub
 * GitLab

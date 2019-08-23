@@ -1,4 +1,5 @@
 {
+  "azure.com": "https://dev.azure.com/{owner}/_git/{name}/commit/{commit}",
   "bitbucket.org": "https://bitbucket.org/{owner}/{name}/commits/{commit}",
   "github.com": "https://github.com/{owner}/{name}/commit/{commit}",
   "gitlab.com": "https://gitlab.com/{owner}/{name}/commit/{commit}"

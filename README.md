@@ -42,6 +42,10 @@ const cwd = '~/Code/dotfiles';
 })();
 ```
 
+## Requirements
+
+Node >= 8
+
 ## Supported platforms
 * BitBucket
 * GitHub

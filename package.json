@@ -7,6 +7,9 @@
     "remote-commit-url": "bin/remote-commit-url"
   },
   "author": "Madeleine Daly",
+  "engines": {
+    "node": ">=8"
+  },
   "keywords": [
     "bitbucket",
     "git",

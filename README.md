@@ -21,6 +21,7 @@ remote-commit-url [options]
 --remote      Git remote [default: origin]
 --cwd         Path to git repository [default: .]
 --git-dir     Path to git directory [default: $GIT_DIR or .git]
+--debug       Whether to print debug info
 ```
 
 ### API

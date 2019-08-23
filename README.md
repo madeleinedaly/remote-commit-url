@@ -51,6 +51,7 @@ Node >= 8
 * BitBucket
 * GitHub
 * GitLab
+* RhodeCode
 
 ## Contributing
 

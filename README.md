@@ -54,10 +54,6 @@ Node >= 8
 * GitLab
 * RhodeCode
 
-## Contributing
-
-Feel free to [open a PR](https://github.com/madeleinedaly/remote-commit-url/compare) to add support for additional platforms.
-
 ## License
 
 MIT

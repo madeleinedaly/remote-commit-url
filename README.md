@@ -18,6 +18,13 @@ $ npm i -g remote-commit-url
 $ remote-commit-url [options]
 ```
 
+##### Example
+
+``` shell
+$ remote-commit-url --commit HEAD~1
+# => https://github.com/madeleinedaly/dotfiles/commit/HEAD~1
+```
+
 ##### Options
 
 ``` shell
@@ -25,7 +32,7 @@ $ remote-commit-url [options]
 --remote      Git remote [default: origin]
 --cwd         Path to git repository [default: .]
 --git-dir     Path to git directory [default: $GIT_DIR or .git]
---debug       Whether to print debug info
+--debug       Print debug info
 ```
 
 ### API
@@ -42,13 +49,13 @@ $ npm i remote-commit-url
 'use strict';
 const remoteCommitUrl = require('remote-commit-url');
 
-const commit = 'HEAD';
+const commit = 'HEAD~1';
 const remote = 'origin';
 const cwd = '~/Code/dotfiles';
 
 (async () => {
   const url = await remoteCommitUrl({commit, remote, cwd});
-  console.log(url); // => 'https://github.com/madeleinedaly/dotfiles/commit/HEAD'
+  console.log(url); // => 'https://github.com/madeleinedaly/dotfiles/commit/HEAD~1'
 })();
 ```
 

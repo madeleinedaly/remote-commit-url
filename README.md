@@ -6,15 +6,19 @@ Generate a URL for viewing a commit in the browser.
 
 ### CLI
 
-``` shell
-npm install -g remote-commit-url
-```
+#### Installation
 
 ``` shell
-remote-commit-url [options]
+$ npm i -g remote-commit-url
 ```
 
-#### Options
+#### Usage
+
+``` shell
+$ remote-commit-url [options]
+```
+
+##### Options
 
 ``` shell
 --commit      Git commit ref [default: HEAD]
@@ -26,11 +30,16 @@ remote-commit-url [options]
 
 ### API
 
+#### Installation
+
 ``` shell
-npm i remote-commit-url
+$ npm i remote-commit-url
 ```
 
-``` jsx
+#### Usage
+
+``` js
+'use strict';
 const remoteCommitUrl = require('remote-commit-url');
 
 const commit = 'HEAD';

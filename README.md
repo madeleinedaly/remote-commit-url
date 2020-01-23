@@ -22,7 +22,7 @@ $ remote-commit-url [options]
 
 ``` shell
 $ remote-commit-url --commit HEAD~1
-# => https://github.com/madeleinedaly/dotfiles/commit/HEAD~1
+# https://github.com/nodejs/node/commit/HEAD~1
 ```
 
 ##### Options
@@ -46,16 +46,15 @@ $ npm i remote-commit-url
 #### Usage
 
 ``` js
-'use strict';
 const remoteCommitUrl = require('remote-commit-url');
 
 const commit = 'HEAD~1';
 const remote = 'origin';
-const cwd = '~/Code/dotfiles';
+const cwd = '~/Projects/node';
 
 (async () => {
   const url = await remoteCommitUrl({commit, remote, cwd});
-  console.log(url); // => 'https://github.com/madeleinedaly/dotfiles/commit/HEAD~1'
+  console.log(url); // "https://github.com/nodejs/node/commit/HEAD~1"
 })();
 ```
 

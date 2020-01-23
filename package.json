@@ -1,6 +1,6 @@
 {
   "name": "remote-commit-url",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Generate a URL for viewing a commit on GitLab, GitHub, BitBucket, and more.",
   "main": "index.js",
   "bin": {

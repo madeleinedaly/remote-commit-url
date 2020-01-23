@@ -1,10 +1,6 @@
 #!/usr/bin/env node
 'use strict';
 const meow = require('meow');
-const path = require('path');
-const util = require('util');
-const gitconfig = util.promisify(require('gitconfiglocal'));
-const gitUrlParse = require('git-url-parse');
 const remoteCommitUrl = require('..');
 
 const defaults = {
@@ -24,27 +20,42 @@ Options:
   --commit      Git commit ref [default: HEAD]
   --remote      Git remote [default: origin]
   --cwd         Path to git repository [default: .]
-  --git-dir     Path to git directory [default: $GIT_DIR or .git]
-  --debug       Whether to print debug info`,
+  --git-dir     Name of git directory [default: $GIT_DIR or .git]
+  --debug       Print debug info`,
   flags: {
-    commit: {type: 'string', default: defaults.commit},
-    remote: {type: 'string', default: defaults.remote},
-    cwd: {type: 'string', default: defaults.cwd},
-    gitDir: {type: 'string', default: defaults.gitDir},
-    debug: {type: 'debug', default: defaults.debug},
+    commit: {
+      type: 'string',
+      default: defaults.commit,
+    },
+    remote: {
+      type: 'string',
+      default: defaults.remote,
+    },
+    cwd: {
+      type: 'string',
+      default: defaults.cwd,
+    },
+    gitDir: {
+      type: 'string',
+      default: defaults.gitDir,
+    },
+    debug: {
+      type: 'debug',
+      default: defaults.debug,
+    },
   },
 };
 
 (async cli => {
-  if (cli.flags.h) {
+  if (cli.flags.h || !Object.keys(cli.flags).length) {
     cli.showHelp(0);
   }
 
-  const result = await remoteCommitUrl(cli.flags);
-  console.log(result);
+  const url = await remoteCommitUrl(cli.flags);
+  console.log(url);
 })(meow(options));
-/*
-  Local Variables:
-  mode: js2
-  End:
-*/
+/**
+ * Local Variables:
+ * mode: js2
+ * End:
+ */
